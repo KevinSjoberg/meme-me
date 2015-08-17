@@ -13,6 +13,7 @@
 		DA02626F1B821C900060839E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA02626E1B821C900060839E /* Images.xcassets */; };
 		DA0262721B821C900060839E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0262701B821C900060839E /* LaunchScreen.xib */; };
 		DA02627E1B821C900060839E /* MemeMe1_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02627D1B821C900060839E /* MemeMe1_0Tests.swift */; };
+		DA0262881B82840B0060839E /* MemeTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0262871B82840B0060839E /* MemeTextEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		DA0262771B821C900060839E /* MemeMe1-0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MemeMe1-0Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA02627C1B821C900060839E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA02627D1B821C900060839E /* MemeMe1_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMe1_0Tests.swift; sourceTree = "<group>"; };
+		DA0262871B82840B0060839E /* MemeTextEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTextEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				DA0262671B821C900060839E /* AppDelegate.swift */,
 				DA0262691B821C900060839E /* ViewController.swift */,
+				DA0262871B82840B0060839E /* MemeTextEditor.swift */,
 				DA02626B1B821C900060839E /* Main.storyboard */,
 				DA02626E1B821C900060839E /* Images.xcassets */,
 				DA0262701B821C900060839E /* LaunchScreen.xib */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA02626A1B821C900060839E /* ViewController.swift in Sources */,
+				DA0262881B82840B0060839E /* MemeTextEditor.swift in Sources */,
 				DA0262681B821C900060839E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
