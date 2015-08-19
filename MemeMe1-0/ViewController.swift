@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  @IBOutlet weak var imageContainerView: UIView!
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var cameraButton: UIBarButtonItem!
   @IBOutlet weak var albumButton: UIBarButtonItem!
@@ -60,8 +61,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
   }
 
   @IBAction func shareImage(sender: UIBarButtonItem) {
-    let activityView = UIActivityViewController(activityItems: [], applicationActivities: [])
+    let image = generateMemeImage()
+    let activityView = UIActivityViewController(activityItems: [image], applicationActivities: [])
+    activityView.completionWithItemsHandler = { (activityType, completed,  returnedItems, activityError) in
+      if (completed) {
+        let meme = Meme(topText: self.topTextField.text, bottomText: self.bottomTextField.text, image: image, originalImage: self.imageView.image!)
+        println(meme)
+      }
+    }
+
     presentViewController(activityView, animated: true, completion: nil)
+  }
+
+  private func generateMemeImage() -> UIImage {
+    UIGraphicsBeginImageContext(imageContainerView.frame.size)
+
+    // Grab a reference to our newly created context
+    let context = UIGraphicsGetCurrentContext()
+
+    // Render a snapshot of everything visible in the image container view
+    let rect = CGRect(x: 0, y: 0, width: imageContainerView.frame.width, height: imageContainerView.frame.height)
+    imageContainerView.drawViewHierarchyInRect(rect, afterScreenUpdates: true)
+
+    let memeImage = UIGraphicsGetImageFromCurrentImageContext()
+
+    UIGraphicsEndImageContext()
+
+    return memeImage
   }
 
   private func setStrokeAttributes(on textField: UITextField!) {
