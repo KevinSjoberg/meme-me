@@ -13,7 +13,8 @@
 		DA02626F1B821C900060839E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA02626E1B821C900060839E /* Images.xcassets */; };
 		DA0262721B821C900060839E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0262701B821C900060839E /* LaunchScreen.xib */; };
 		DA02627E1B821C900060839E /* MemeMe1_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA02627D1B821C900060839E /* MemeMe1_0Tests.swift */; };
-		DA0262881B82840B0060839E /* MemeTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0262871B82840B0060839E /* MemeTextEditor.swift */; };
+		DA0262881B82840B0060839E /* MemeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0262871B82840B0060839E /* MemeTextFieldDelegate.swift */; };
+		DA05CD7D1B84FC02008DF7DF /* MemeTextFieldKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05CD7C1B84FC02008DF7DF /* MemeTextFieldKeyboardManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,8 @@
 		DA0262771B821C900060839E /* MemeMe1-0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MemeMe1-0Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA02627C1B821C900060839E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA02627D1B821C900060839E /* MemeMe1_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMe1_0Tests.swift; sourceTree = "<group>"; };
-		DA0262871B82840B0060839E /* MemeTextEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTextEditor.swift; sourceTree = "<group>"; };
+		DA0262871B82840B0060839E /* MemeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTextFieldDelegate.swift; sourceTree = "<group>"; };
+		DA05CD7C1B84FC02008DF7DF /* MemeTextFieldKeyboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTextFieldKeyboardManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +81,10 @@
 		DA0262641B821C900060839E /* MemeMe1-0 */ = {
 			isa = PBXGroup;
 			children = (
+				DA05CD7B1B84E558008DF7DF /* Delegates */,
 				DA0262671B821C900060839E /* AppDelegate.swift */,
 				DA0262691B821C900060839E /* ViewController.swift */,
-				DA0262871B82840B0060839E /* MemeTextEditor.swift */,
+				DA05CD7C1B84FC02008DF7DF /* MemeTextFieldKeyboardManager.swift */,
 				DA02626B1B821C900060839E /* Main.storyboard */,
 				DA02626E1B821C900060839E /* Images.xcassets */,
 				DA0262701B821C900060839E /* LaunchScreen.xib */,
@@ -113,6 +116,14 @@
 				DA02627C1B821C900060839E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA05CD7B1B84E558008DF7DF /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				DA0262871B82840B0060839E /* MemeTextFieldDelegate.swift */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,7 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA02626A1B821C900060839E /* ViewController.swift in Sources */,
-				DA0262881B82840B0060839E /* MemeTextEditor.swift in Sources */,
+				DA05CD7D1B84FC02008DF7DF /* MemeTextFieldKeyboardManager.swift in Sources */,
+				DA0262881B82840B0060839E /* MemeTextFieldDelegate.swift in Sources */,
 				DA0262681B821C900060839E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +425,7 @@
 				DA0262831B821C900060839E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA0262841B821C900060839E /* Build configuration list for PBXNativeTarget "MemeMe1-0Tests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +434,7 @@
 				DA0262861B821C900060839E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

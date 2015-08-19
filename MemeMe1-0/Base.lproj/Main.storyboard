@@ -16,26 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI6-zq-CAL">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cjX-Dx-qzV">
+                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJf-Ur-HGm">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="camera" id="QjC-yK-s6J">
+                                    <barButtonItem enabled="NO" systemItem="action" id="gmQ-aw-xah">
                                         <connections>
-                                            <action selector="pickImage:" destination="vXZ-lx-hvc" id="lgL-JW-Z1C"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem tag="1" title="Album" id="DRc-o8-mjV">
-                                        <connections>
-                                            <action selector="pickImage:" destination="vXZ-lx-hvc" id="Kr3-zE-CG9"/>
+                                            <action selector="shareImage:" destination="vXZ-lx-hvc" id="xgs-FA-jMg"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cjX-Dx-qzV">
-                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="yrz-g7-9bu">
-                                <rect key="frame" x="16" y="45" width="568" height="29"/>
+                                <rect key="frame" x="16" y="89" width="568" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="Pso-Bc-nSx"/>
                                 </constraints>
@@ -43,7 +38,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="33H-yc-fUm">
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="33H-yc-fUm">
                                 <rect key="frame" x="16" y="502" width="568" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="Esv-Hn-Il6"/>
@@ -52,6 +47,24 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VI6-zq-CAL">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2kF-Lv-uog"/>
+                                    <barButtonItem systemItem="camera" id="QjC-yK-s6J">
+                                        <connections>
+                                            <action selector="pickImage:" destination="vXZ-lx-hvc" id="lgL-JW-Z1C"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="50" style="plain" systemItem="fixedSpace" id="pe6-KH-JVQ"/>
+                                    <barButtonItem tag="1" systemItem="organize" id="DRc-o8-mjV">
+                                        <connections>
+                                            <action selector="pickImage:" destination="vXZ-lx-hvc" id="Kr3-zE-CG9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Q4n-bm-tFq"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <constraints>
                             <constraint firstItem="cjX-Dx-qzV" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="4Sw-SL-weT"/>
@@ -63,10 +76,13 @@
                             <constraint firstItem="VI6-zq-CAL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bSm-oo-6Cn"/>
                             <constraint firstItem="yrz-g7-9bu" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="eB1-Ex-MU5"/>
                             <constraint firstItem="33H-yc-fUm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="f7a-g1-SlI"/>
+                            <constraint firstItem="yrz-g7-9bu" firstAttribute="top" secondItem="vJf-Ur-HGm" secondAttribute="bottom" constant="25" id="h9z-bD-HAn"/>
+                            <constraint firstItem="vJf-Ur-HGm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="hvk-sq-05r"/>
+                            <constraint firstItem="vJf-Ur-HGm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ld2-Mk-kN5"/>
                             <constraint firstItem="cjX-Dx-qzV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="pFQ-of-6sW"/>
                             <constraint firstAttribute="trailing" secondItem="cjX-Dx-qzV" secondAttribute="trailing" id="ral-Li-aMh"/>
                             <constraint firstItem="VI6-zq-CAL" firstAttribute="top" secondItem="cjX-Dx-qzV" secondAttribute="bottom" id="uub-qq-UUK"/>
-                            <constraint firstItem="yrz-g7-9bu" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="25" id="vzl-PQ-OHk"/>
+                            <constraint firstAttribute="trailing" secondItem="vJf-Ur-HGm" secondAttribute="trailing" id="vU8-Ch-Mlu"/>
                             <constraint firstAttribute="trailing" secondItem="33H-yc-fUm" secondAttribute="trailing" constant="16" id="z4W-P3-R7s"/>
                         </constraints>
                     </view>
@@ -76,6 +92,7 @@
                         <outlet property="bottomTextField" destination="33H-yc-fUm" id="cQa-rL-78d"/>
                         <outlet property="cameraButton" destination="QjC-yK-s6J" id="9C9-SV-kXm"/>
                         <outlet property="imageView" destination="cjX-Dx-qzV" id="otu-p3-sZj"/>
+                        <outlet property="shareButton" destination="gmQ-aw-xah" id="BjO-ZP-7Ck"/>
                         <outlet property="topTextField" destination="yrz-g7-9bu" id="H8l-du-FGa"/>
                     </connections>
                 </viewController>

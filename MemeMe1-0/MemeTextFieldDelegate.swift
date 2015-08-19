@@ -1,5 +1,5 @@
 //
-//  MemeTextEditor.swift
+//  MemeTextFieldDelegate.swift
 //  MemeMe1-0
 //
 //  Created by Kevin Sjöberg on 17/08/15.
@@ -9,12 +9,8 @@
 import Foundation
 import UIKit
 
-class MemeTextEditor: NSObject, UITextFieldDelegate {
-  let defaultText: String
-
-  init(defaultText: String) {
-    self.defaultText = defaultText
-  }
+class MemeTextFieldDelegate: NSObject, UITextFieldDelegate {
+  let defaultTexts = ["TOP", "BOTTOM"]
 
   // MARK: UITextFieldDelegate
 
@@ -24,14 +20,14 @@ class MemeTextEditor: NSObject, UITextFieldDelegate {
   }
 
   func textFieldDidBeginEditing(textField: UITextField) {
-    if defaultText == textField.text {
-      textField.text = ""
+    if (defaultTexts[textField.tag] == textField.text) {
+       textField.text = ""
     }
   }
 
   func textFieldDidEndEditing(textField: UITextField) {
     if textField.text == "" {
-      textField.text = defaultText
+      textField.text = defaultTexts[textField.tag]
     }
   }
 }

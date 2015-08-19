@@ -12,92 +12,65 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var cameraButton: UIBarButtonItem!
   @IBOutlet weak var albumButton: UIBarButtonItem!
+  @IBOutlet weak var shareButton: UIBarButtonItem!
   @IBOutlet weak var topTextField: UITextField!
   @IBOutlet weak var bottomTextField: UITextField!
 
-  var topMemeEditor: MemeTextEditor!
-  var bottomMemeEditor: MemeTextEditor!
+  let memeTextFieldDelegate = MemeTextFieldDelegate()
+  var memeTextFieldKeyboardManager: MemeTextFieldKeyboardManager!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Enable camera button only if a camera exists
-    cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
+    // Enable our keyboard manager
+    memeTextFieldKeyboardManager = MemeTextFieldKeyboardManager(view: view, textFields: [bottomTextField])
 
     // Set text field delegates
-    topMemeEditor = MemeTextEditor(defaultText: topTextField.text)
-    topTextField.delegate = topMemeEditor
-
-    bottomMemeEditor = MemeTextEditor(defaultText: bottomTextField.text)
-    bottomTextField.delegate = bottomMemeEditor
+    topTextField.delegate = memeTextFieldDelegate
+    bottomTextField.delegate = memeTextFieldDelegate
 
     // Set meme attributes for text fields
-    setMemeAttributes(on: topTextField)
-    setMemeAttributes(on: bottomTextField)
+    setStrokeAttributes(on: topTextField)
+    setStrokeAttributes(on: bottomTextField)
+
+    // Enable camera button only if a camera exists
+    cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
   }
 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    subscribeToKeyboardNotifications()
+    memeTextFieldKeyboardManager.start()
   }
 
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    unsubscribeFromKeyboardNotifications()
+    memeTextFieldKeyboardManager.stop()
   }
 
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return .LightContent
   }
 
-  func keyboardWillShow(notification: NSNotification) {
-    // Ensure we only shift the view if we're editing the bottom text
-    if (bottomTextField.editing) {
-      self.view.frame.origin.y -= getKeyboardHeight(notification)
-    }
+  @IBAction func pickImage(sender: UIBarButtonItem) {
+    let imagePicker = UIImagePickerController()
+    imagePicker.delegate = self
+    imagePicker.sourceType = sender.tag == 0 ? .Camera : .PhotoLibrary
+
+    presentViewController(imagePicker, animated: true, completion: nil)
   }
 
-  func keyboardWillHide(notification: NSNotification) {
-    // Ensure we only shift the view if we're editing the bottom text
-    if (bottomTextField.editing) {
-      self.view.frame.origin.y += getKeyboardHeight(notification)
-    }
+  @IBAction func shareImage(sender: UIBarButtonItem) {
+    let activityView = UIActivityViewController(activityItems: [], applicationActivities: [])
+    presentViewController(activityView, animated: true, completion: nil)
   }
 
-  private func getKeyboardHeight(notification: NSNotification) -> CGFloat {
-    let userInfo = notification.userInfo!
-    let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-
-    return keyboardSize.height
-  }
-
-  private func setMemeAttributes(on textField: UITextField!) {
+  private func setStrokeAttributes(on textField: UITextField!) {
     var textAttributes = textField.defaultTextAttributes
 
     textAttributes[NSStrokeWidthAttributeName] = -3.0
     textAttributes[NSStrokeColorAttributeName] = UIColor.blackColor()
 
     textField.defaultTextAttributes = textAttributes
-  }
-
-
-  private func subscribeToKeyboardNotifications() {
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-  }
-
-  private func unsubscribeFromKeyboardNotifications() {
-    NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-    NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-  }
-
-  @IBAction func pickImage(sender: UIBarButtonItem) {
-    let imagePicker = UIImagePickerController()
-
-    imagePicker.delegate = self
-    imagePicker.sourceType = sender.tag == 0 ? .Camera : .PhotoLibrary
-
-    presentViewController(imagePicker, animated: true, completion: nil)
   }
 
   // MARK: UIImagePickerControllerDelegate
@@ -108,6 +81,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
   func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
     imageView.image = image
+    shareButton.enabled = true
     dismissViewControllerAnimated(true, completion: nil)
   }
 }
