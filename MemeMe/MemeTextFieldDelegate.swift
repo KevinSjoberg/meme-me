@@ -21,7 +21,7 @@ class MemeTextFieldDelegate: NSObject, UITextFieldDelegate {
 
   func textFieldDidBeginEditing(textField: UITextField) {
     if (defaultTexts[textField.tag] == textField.text) {
-       textField.text = ""
+      textField.text = ""
     }
   }
 

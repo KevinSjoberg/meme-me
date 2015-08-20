@@ -24,7 +24,7 @@
 			containerPortal = DA02625A1B821C900060839E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = DA0262611B821C900060839E;
-			remoteInfo = "MemeMe";
+			remoteInfo = MemeMe;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -86,15 +86,14 @@
 				DA05CD7B1B84E558008DF7DF /* Delegates */,
 				DA0262671B821C900060839E /* AppDelegate.swift */,
 				DA0262691B821C900060839E /* ViewController.swift */,
+				DA05CD7E1B85171A008DF7DF /* Meme.swift */,
 				DA05CD7C1B84FC02008DF7DF /* MemeTextFieldKeyboardManager.swift */,
 				DA02626B1B821C900060839E /* Main.storyboard */,
 				DA02626E1B821C900060839E /* Images.xcassets */,
 				DA0262701B821C900060839E /* LaunchScreen.xib */,
 				DA0262651B821C900060839E /* Supporting Files */,
-				DA05CD7E1B85171A008DF7DF /* Meme.swift */,
 			);
-			name = MemeMe;
-			path = "MemeMe";
+			path = MemeMe;
 			sourceTree = "<group>";
 		};
 		DA0262651B821C900060839E /* Supporting Files */ = {
@@ -112,7 +111,7 @@
 				DA02627B1B821C900060839E /* Supporting Files */,
 			);
 			name = MemeMe;
-			path = "MemeMeTests";
+			path = MemeMeTests;
 			sourceTree = "<group>";
 		};
 		DA02627B1B821C900060839E /* Supporting Files */ = {
@@ -147,7 +146,7 @@
 			dependencies = (
 			);
 			name = MemeMe;
-			productName = "MemeMe";
+			productName = MemeMe;
 			productReference = DA0262621B821C900060839E /* MemeMe.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -165,7 +164,7 @@
 				DA0262791B821C900060839E /* PBXTargetDependency */,
 			);
 			name = MemeMeTests;
-			productName = "MemeMeTests";
+			productName = MemeMeTests;
 			productReference = DA0262771B821C900060839E /* MemeMeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
