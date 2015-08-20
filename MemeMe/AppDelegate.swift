@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MemeMe1-0
+//  MemeMe
 //
 //  Created by Kevin Sjöberg on 17/08/15.
 //  Copyright (c) 2015 Kevin Sjöberg. All rights reserved.

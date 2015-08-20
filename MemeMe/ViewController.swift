@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  MemeMe1-0
+//  MemeMe
 //
 //  Created by Kevin Sjöberg on 17/08/15.
 //  Copyright (c) 2015 Kevin Sjöberg. All rights reserved.
@@ -66,7 +66,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     activityView.completionWithItemsHandler = { (activityType, completed,  returnedItems, activityError) in
       if (completed) {
         let meme = Meme(topText: self.topTextField.text, bottomText: self.bottomTextField.text, image: image, originalImage: self.imageView.image!)
-        println(meme)
       }
     }
 
