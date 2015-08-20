@@ -73,7 +73,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
   }
 
   private func generateMemeImage() -> UIImage {
-    UIGraphicsBeginImageContext(imageContainerView.frame.size)
+    UIGraphicsBeginImageContextWithOptions(imageContainerView.frame.size, false, 0)
 
     // Grab a reference to our newly created context
     let context = UIGraphicsGetCurrentContext()
