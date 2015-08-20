@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -45,13 +45,10 @@
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uc5-c2-FF8" userLabel="Image Container View">
-                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <rect key="frame" x="258" y="64" width="85" height="472"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cjX-Dx-qzV">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
-                                    </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="33H-yc-fUm">
-                                        <rect key="frame" x="0.0" y="25" width="600" height="29"/>
+                                        <rect key="frame" x="0.0" y="25" width="85" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="Esv-Hn-Il6"/>
                                         </constraints>
@@ -60,7 +57,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="yrz-g7-9bu">
-                                        <rect key="frame" x="0.0" y="438" width="600" height="29"/>
+                                        <rect key="frame" x="0.0" y="418" width="85" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="Pso-Bc-nSx"/>
                                         </constraints>
@@ -68,6 +65,9 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                     </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cjX-Dx-qzV">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="472"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -87,14 +87,20 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="VI6-zq-CAL" secondAttribute="bottom" id="7Kt-hy-wme"/>
-                            <constraint firstItem="VI6-zq-CAL" firstAttribute="top" secondItem="uc5-c2-FF8" secondAttribute="bottom" id="8jW-hg-YHY"/>
-                            <constraint firstItem="uc5-c2-FF8" firstAttribute="top" secondItem="vJf-Ur-HGm" secondAttribute="bottom" id="CFD-KO-Dcj"/>
-                            <constraint firstAttribute="trailing" secondItem="uc5-c2-FF8" secondAttribute="trailing" id="ESO-Ep-awd"/>
-                            <constraint firstItem="uc5-c2-FF8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="H0A-yQ-xqS"/>
+                            <constraint firstItem="VI6-zq-CAL" firstAttribute="top" secondItem="uc5-c2-FF8" secondAttribute="bottom" priority="250" id="8bE-I4-dZb"/>
+                            <constraint firstItem="VI6-zq-CAL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uc5-c2-FF8" secondAttribute="bottom" id="8jW-hg-YHY"/>
+                            <constraint firstItem="uc5-c2-FF8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vJf-Ur-HGm" secondAttribute="bottom" id="CFD-KO-Dcj"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uc5-c2-FF8" secondAttribute="trailing" id="ESO-Ep-awd"/>
+                            <constraint firstItem="uc5-c2-FF8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kh9-bI-dsS" secondAttribute="leading" id="H0A-yQ-xqS"/>
+                            <constraint firstItem="uc5-c2-FF8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" priority="250" id="L2H-Ln-uXe"/>
                             <constraint firstAttribute="trailing" secondItem="VI6-zq-CAL" secondAttribute="trailing" id="Lh3-au-VLs"/>
+                            <constraint firstItem="uc5-c2-FF8" firstAttribute="top" secondItem="vJf-Ur-HGm" secondAttribute="bottom" priority="250" id="UnT-is-VRl"/>
+                            <constraint firstAttribute="trailing" secondItem="uc5-c2-FF8" secondAttribute="trailing" priority="250" id="WFx-OR-MSG"/>
                             <constraint firstItem="VI6-zq-CAL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bSm-oo-6Cn"/>
+                            <constraint firstAttribute="centerX" secondItem="uc5-c2-FF8" secondAttribute="centerX" id="fAX-DI-9Xj"/>
                             <constraint firstItem="vJf-Ur-HGm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="hvk-sq-05r"/>
                             <constraint firstItem="vJf-Ur-HGm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ld2-Mk-kN5"/>
+                            <constraint firstAttribute="centerY" secondItem="uc5-c2-FF8" secondAttribute="centerY" id="q5p-yb-KJ5"/>
                             <constraint firstAttribute="trailing" secondItem="vJf-Ur-HGm" secondAttribute="trailing" id="vU8-Ch-Mlu"/>
                         </constraints>
                     </view>

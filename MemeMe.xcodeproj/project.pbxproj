@@ -83,10 +83,10 @@
 		DA0262641B821C900060839E /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				DA05CD801B85C66A008DF7DF /* Models */,
 				DA05CD7B1B84E558008DF7DF /* Delegates */,
 				DA0262671B821C900060839E /* AppDelegate.swift */,
 				DA0262691B821C900060839E /* ViewController.swift */,
-				DA05CD7E1B85171A008DF7DF /* Meme.swift */,
 				DA05CD7C1B84FC02008DF7DF /* MemeTextFieldKeyboardManager.swift */,
 				DA02626B1B821C900060839E /* Main.storyboard */,
 				DA02626E1B821C900060839E /* Images.xcassets */,
@@ -128,6 +128,14 @@
 				DA0262871B82840B0060839E /* MemeTextFieldDelegate.swift */,
 			);
 			name = Delegates;
+			sourceTree = "<group>";
+		};
+		DA05CD801B85C66A008DF7DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA05CD7E1B85171A008DF7DF /* Meme.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

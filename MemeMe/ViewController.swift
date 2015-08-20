@@ -36,8 +36,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     // Enable camera button only if a camera exists
     cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(.Camera)
+
+    imageView.layer.borderWidth = 1.0
+    imageView.layer.borderColor = UIColor.yellowColor().CGColor
   }
 
+  override func viewDidAppear(animated: Bool) {
+    println(" --- View appeared ---")
+    println("imageContainerView: \(imageContainerView.frame.width)x\(imageContainerView.frame.height)")
+    println("imageView: \(imageView.frame.width)x\(imageView.frame.height)")
+
+  }
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     memeTextFieldKeyboardManager.start()
@@ -107,6 +117,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
   func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
     imageView.image = image
     shareButton.enabled = true
+
+    println(" --- Picked an image ---")
+    println("image: \(image.size.width)x\(image.size.height)")
+    println("imageContainerView: \(imageContainerView.frame.width)x\(imageContainerView.frame.height)")
+    println("imageView: \(imageView.frame.width)x\(imageView.frame.height)")
+    println("ImageView.image: \(imageView.image?.size.width)x\(imageView.image?.size.height)")
     dismissViewControllerAnimated(true, completion: nil)
   }
 }
